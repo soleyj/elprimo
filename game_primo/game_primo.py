@@ -191,7 +191,7 @@ class GamePrimo():
         #Ordena de petit a gran
         for i in self.players:
             temp_array.append(i.wanted_gold)
-        temp_array.sort
+        temp_array.sort()
            # while np.any(x[:-1] > x[1:]):
            #    np.random.shuffle(x)
            #    return x
