@@ -113,7 +113,7 @@ class GamePrimo():
                     self.time = 4
 
                 elif(self.inter_turn == 7):
-                        self.augmentar_boti
+                        self.augmentar_boti()
                         self.inter_turn = 1
                         self.time = 0
                         self.turn += 1
