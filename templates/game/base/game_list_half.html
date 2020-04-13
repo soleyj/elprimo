@@ -1,0 +1,27 @@
+<div class="card">
+    <div class="card-header">
+      <h3 class="card-title">Introduir Noms</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body p-0">
+      <table class="table table-sm">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Introduir Nom</th>
+            <th>OK!</th>
+          </tr>
+        </thead>
+        <tbody >
+          {%for g in games %}
+        <tr>
+            <td id="half_list" >{{g.id}}</td>
+            <td><input type="text" name="message" id="name_input{{g.id}}" placeholder="Nom..." class="form-control"   ></td>
+            <td><button type="button" class="btn btn-success changeName" member_id="{{ g.id }}">OK</button></td>
+        </tr>
+          {%endfor%}
+        </tbody>
+      </table>
+    </div>
+    <!-- /.card-body -->
+  </div>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <title>¡Desconfínate!  </title>
+  <meta charset="utf-8">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-134763804-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-134763804-1');
+</script>
+
+  <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="{% static "game/bootstrap_orange.css" %}">
+  <link rel="stylesheet" href="{%static "comon/jquery-confirm.min.css" %} ">
+  <script src=" {% static "comon/jquery_3.4.1.min.js" %}"></script>
+  <script src=" {% static "comon/bootstrap.min.js" %}"></script>
+  <script src=" {% static "comon/jquery-confirm.min.js" %}"></script>
+  <link rel="stylesheet" href="{% static "game/aniamtion.css" %}">
+  <link rel="stylesheet" href="{% static "game/home.css" %}">
+  <style>    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+  </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <ul class="navbar-nav mr-auto">
+        <a class="navbar-brand" href="https://TeamingLabs.com">
+          <img src="{% static 'game/Logo3.png' %}" width="180" height="35" alt="" >
+          </a>
+          <li class="nav-item">
+          <a class="nav-link" href="{% url 'game:home' %}" >Inicio</a>
+        </li> 
+      </ul>
+      </nav>
+         {% block body_block %} {# Anything outside of this
+          will be inherited if you use extend.#} {% endblock %}
+<!-- Footer -->
+<footer class="page-footer font-small blue pt-4">
+
+  <!-- Footer Links -->
+  <div class="container-fluid text-center text-md-left">
+
+    <!-- Grid row -->
+    <div class="row">
+
+      <!-- Grid column -->
+      <div class="col-md-6 mt-md-0 mt-3">
+
+        <!-- Content -->
+        <h5 class="text-uppercase">EL ROOM ESCAPE ONLINE DE <a  href="https://TeamingLabs.com">TEAMING LABS</a></h5>
+        <a class="navbar-brand" href="https://TeamingLabs.com">
+          <img src="{% static 'game/Logo1.png' %}" width="180" height="35" alt="" >
+          </a>
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none pb-3">
+
+      <!-- Grid column -->
+      <div class="col-md-3 mb-md-0 mb-3">
+
+        <!-- Links -->
+        <h5 class="text-uppercase"> MÁS JUEGOS!</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a  href="https://TeamingLabs.com/synergyk">SYNERGYK</a>
+          </li>
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row -->
+
+  </div>
+  <!-- Footer Links -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+    <a  href="http://TeamingLabs.com"> TeamingLabs.com</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+</body>
+</html>

@@ -1,0 +1,41 @@
+<div class="card-footer" >
+    <h4>Control del Joc</h4>
+    <div class="card-body table-responsive pad">
+        {%if game.state == 1 %}
+        <button type="button" class="btn btn-block btn-primary startgame">Començar Partida</button>
+        <button type="button" class="btn btn-block btn-danger deletegame">Borrar Partida</button>
+        <!-- <button type="button" class="btn btn-block btn-warning">Pausar Partida</button>
+        <button type="button" class="btn btn-block btn-primary">Pausar Partida</button> -->
+        <button type="button" class="btn btn-block btn-primary testON">Test ON</button>
+        <button type="button" class="btn btn-block btn-warning testOFF">Test OFF</button>
+        <button type="button" class="btn btn-block btn-primary nomsid">Noms per ID </button>
+        {%elif game.state == 2 %} 
+        <button type="button" class="btn btn-block btn-warning puasegame">Pausar Partida</button>
+        <button type="button" class="btn btn-block btn-success replaygame">Continuar Partida</button>
+        <button type="button" class="btn btn-block btn-danger deletegame">Borrar Partida</button>
+        <button type="button" class="btn btn-block btn-primary savegame">Guardar Partida</button>
+        {%endif%}
+        
+
+    </div>
+</div>
+<div class="card-footer" >
+    <h4>Sumar Punts</h4>
+    <div class="card-body table-responsive pad">
+        <div class="form-group">
+            <label>Maleta</label>
+            <select class="form-control" id="choose_game" name="choose_game" >
+            {%for g in games%}
+                <option id = "{{g.id}}">{{g.id}} : {{g.name}} "</option>
+                {%endfor%}
+            </select>
+        </div>
+        <p class="mb-1"></p>
+        <div class="input-group">
+            <input type="number" name="message" id="name_game" placeholder="Punts!" class="form-control">
+            <span class="input-group-append">
+            <button type="button" class="btn btn-warning addpoints" >SUMA/RESTA</button>
+            </span>
+        </div>
+    </div>
+</div>

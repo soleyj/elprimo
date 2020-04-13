@@ -1,0 +1,41 @@
+<div class="card">
+    <div class="card-header">
+      <h3 class="card-title">LLista de Jocs</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body p-0">
+      <table class="table table-sm">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Conexió</th>
+            <th>Nom</th>
+            <th>Punts</th>
+          </tr>
+        </thead>
+        <tbody >
+          {%for g in games %}
+        <tr>
+            <td id="half_list" >{{g.id}}</td>
+            {%if g.state == 1%}
+            <td>
+                <p class ="text-success">
+                Online
+                </p>
+            </td>
+            {%else%}
+            <td>
+                <p class ="text-danger">
+                    Offline
+                </p>
+            </td>
+            {%endif%}
+            <td>{{g.name}}</td>
+            <td>{{g.points}}</td>
+        </tr>
+          {%endfor%}
+        </tbody>
+      </table>
+    </div>
+    <!-- /.card-body -->
+  </div>

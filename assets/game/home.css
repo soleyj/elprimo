@@ -1,0 +1,52 @@
+.intro{
+    font-size: 200%;
+    font-family: 'Lato', sans-serif;
+  }
+
+
+.recomd{
+    font-size: 150%;
+    font-family: 'Lato', sans-serif;
+ 
+}
+
+.recomdan{
+  font-size: 125%;
+  font-family: 'Lato', sans-serif;
+
+}
+.p{
+  font-family: 'Lato', sans-serif;
+}
+
+.btn-lg, .btn-group-lg > .btn {
+    padding: 0.5rem 1rem;
+    font-size: 2rem;
+    line-height: 3;
+    border-radius: 0.3rem;
+  }
+
+.center_btt> .col{
+    display: flex;
+    align-items: center;
+}
+
+.btn-help,.btn-help > .btn{
+    padding: 0.5rem 3rem;
+    font-size: 0.8rem;
+    line-height: 1;
+    border-radius: 0.3rem;
+  }
+
+.monospace {
+  color: green;
+  font-family: "Lucida Console", Courier, monospace;
+
+}
+
+.btn-lg, .bt-custom-lg> .btn {
+  padding: 0.5rem 1rem;
+  font-size: 2rem;
+  line-height: 3;
+  border-radius: 0.3rem;
+}
