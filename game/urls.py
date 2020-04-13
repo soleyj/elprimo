@@ -1,5 +1,7 @@
 from django.urls import path
 from game import views
+from datetime import datetime
+
 
 
 
@@ -9,7 +11,7 @@ urlpatterns = [
     path(r'',views.DashboardView.as_view(), name='home'),
     path(r'game',views.GameView.as_view(), name='game'),
     path(r'lobby',views.LobbyView.as_view(), name='lobby'),
-    # path(r'final',views.Final_view.as_view(), name='final'),
+    path(r'rank',views.RankView.as_view(), name='rank'),
     # path(r'dades',views.dades_view.as_view(), name='dades'),
     # path(r'guia',views.guia_view.as_view(), name='guia'),
     # path(r'list_game',views.C_game_list.as_view(), name='list_game'),

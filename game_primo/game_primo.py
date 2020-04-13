@@ -53,7 +53,8 @@ class GamePrimo():
                         "answ": player.answ,
                         "dead_player": self.dead_player,
                         "player_names": temp_array,
-                        "start":self.start
+                        "start":self.start,
+                        "torn": self.turn,
                         }
                 return data
         
@@ -61,7 +62,8 @@ class GamePrimo():
                         "inter_turn": self.inter_turn,
                         "total_gold": self.total_gold,
                         "player_names": temp_array,
-                        "start":self.start
+                        "start":self.start,
+                        "torn": self.turn,
                         }
         return data 
         
@@ -115,8 +117,8 @@ class GamePrimo():
                         self.inter_turn = 1
                         self.time = 0
                         self.turn += 1
-                        if(self.turn == 6):
-                            self.start = 0
+                        if(self.turn == 1):
+                            self.start = 2
 
 
             else:
@@ -212,3 +214,9 @@ class GamePrimo():
        for i in self.players:
          print (i.name)
 
+    def all_gold(self):
+        data =[]
+        for index,player in enumerate(self.players):
+            data.append((player.name,player.gold))
+        
+        return data

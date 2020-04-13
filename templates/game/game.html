@@ -10,7 +10,8 @@
 
   </div>
   <div id = "">
-      <p id ="time"></p>
+    <p >TIME<p id ="time"></p></p>
+    <p >TURN<p id ="torn"></p></p>
   </div>
 </div>
 
@@ -30,8 +31,9 @@ var last_inter = 0
         url: "{% url 'game:check_game' %}" , 
         success:(function(data){
           var obj = JSON.parse(data);
-          console.log(obj.inter_turn)
+          console.log(obj.torn)
           $('#time').html(obj.time);
+          $('#torn').html(obj.torn);
           if(obj.inter_turn != last_inter)
           {
             $.ajax({
@@ -46,6 +48,10 @@ var last_inter = 0
               });
           }
           last_inter = obj.inter_turn
+          if(obj.start == 2)
+          {
+            window.location.href = "rank"
+          }
           })
         })
 

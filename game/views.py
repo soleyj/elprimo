@@ -56,6 +56,16 @@ class LobbyView(TemplateView):
 
         return context
 
+class RankView(TemplateView):
+    # Just set this Class Object Attribute to the template page.
+    template_name = 'game/rank.html'
+    
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["data"] = game_primo.all_gold()
+        print(context["data"])
+        return context
 
 def get_data(request):
     name = request.GET['name']

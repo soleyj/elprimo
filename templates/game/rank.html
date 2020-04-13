@@ -1,0 +1,14 @@
+{% extends "game/base.html" %}
+{% block body_block%}
+{% load static%}
+
+<div class="jumbotron text-center">
+<h1>EL RANKING DEL PRIMO</h1>
+{% for d in data%}
+<p> {{d.0}} : {{d.1}} points</p>
+{%endfor%}
+<script>
+  var new_player = "{% url 'game:add_user' %}"
+
+</script>
+{% endblock %}
