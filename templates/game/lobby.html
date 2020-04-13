@@ -1,11 +1,51 @@
+{% extends "game/base.html" %}
+{% block body_block%}
 {% load static%}
 
 <div class="jumbotron text-center">
   <h1>
-    X jugadors
+    Lobby
   </h1>
-  <button type="submit" class="btn btn-primary get_alias">Submit</button>
+  <h1>Player list:</h1>
+  <div id ="list_players">
+
+
+  </div>
+  <button type="submit" class="btn btn-primary start_game">Start Game</button>
 
 </div>
 
+<script>
+window.setInterval(function(){
+    $.ajax({
+      type: "GET",
+      url: "{% url 'game:lobby_data' %}" , 
+      })
+      .done(function (response) {
+          $('#list_players').html(response);
+        });
+    $.ajax({
+      type: "GET",
+      url: "{% url 'game:check_game' %}" , 
+      
+      success: (function(data){
+      
+      var obj = JSON.parse(data);
+      console.log(obj.start)
+      if(obj.start == 1)
+       {
+        window.location.href = "game"
+       }
+      })
+    })
+      
+}, 1000);
 
+var start_url  = "{% url 'game:start_game' %}"
+
+
+
+
+</script>
+
+{% endblock %}

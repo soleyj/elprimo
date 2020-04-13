@@ -7,9 +7,13 @@
 
   <div class="form-group">
     <label for="exampleInputEmail1">User Name!</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+    <input type="email" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter Name">
   </div>
   <button type="submit" class="btn btn-primary get_alias">Submit</button>
 </div>
 
+<script>
+  var new_player = "{% url 'game:add_user' %}"
+
+</script>
 {% endblock %}

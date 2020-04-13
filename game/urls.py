@@ -7,8 +7,8 @@ app_name = 'game'
 
 urlpatterns = [
     path(r'',views.DashboardView.as_view(), name='home'),
-    path(r'start',views.GameView.as_view(), name='game'),
-    # path(r'pistas',views.Pistas.as_view(), name='pistas'),
+    path(r'game',views.GameView.as_view(), name='game'),
+    path(r'lobby',views.LobbyView.as_view(), name='lobby'),
     # path(r'final',views.Final_view.as_view(), name='final'),
     # path(r'dades',views.dades_view.as_view(), name='dades'),
     # path(r'guia',views.guia_view.as_view(), name='guia'),
@@ -17,15 +17,14 @@ urlpatterns = [
 
 
     # #"api"start_game
-    # path(r'index', views.index, name='index'),
-    # path(r'check_response', views.check_response, name='check_response'),
-    # path(r'start_game', views.start_game, name='start_game'),
-    # path(r'give_nota', views.give_nota, name='give_nota'),
-    # path(r'chat_bot', views.chat_bot, name='chat_bot'),
-    # path(r'save_stopGame', views.save_stopGame, name='save_stopGame'),
-    # path(r'start_game', views.start_game, name='start_game'),
-    # path(r'add_points', views.add_points, name='add_points'),
-    # path(r'change_name', views.change_name, name='change_name'),
+    path(r'get_data', views.get_data, name='get_data'),
+    path(r'add_user', views.add_user, name='add_user'),
+    path(r'start_game', views.start_game, name='start_game'),
+    path(r'lobby_data', views.lobby_data, name='lobby_data'),
+    path(r'check_game', views.check_game, name='check_game'),
+    path(r'kill_player', views.kill_player, name='kill_player'),
+    path(r'ask_player', views.ask_player, name='ask_player'),
+    path(r'get_player', views.get_player, name='get_player'),
     # path(r'name_id', views.name_id, name='name_id'),
 
 

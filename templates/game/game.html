@@ -2,8 +2,60 @@
 {% block body_block%}
 {% load static%}
 
-<div class="container">
+<div class="jumbotron text-center">
+  <h1>
+    Jugando
+  </h1>
   <div id = "append_">
+
   </div>
+  <div id = "">
+      <p id ="time"></p>
   </div>
+</div>
+
+<script>
+
+
+var kill_player = "{% url 'game:kill_player' %}" 
+var ask_player = "{% url 'game:ask_player' %}" 
+var get_player = "{% url 'game:get_player' %}" 
+var last_inter = 0
+
+  console.log(window.localStorage.getItem('name'))
+  window.setInterval(function(){
+    
+    $.ajax({
+        type: "GET",
+        url: "{% url 'game:check_game' %}" , 
+        success:(function(data){
+          var obj = JSON.parse(data);
+          console.log(obj.inter_turn)
+          $('#time').html(obj.time);
+          if(obj.inter_turn != last_inter)
+          {
+            $.ajax({
+            type: "GET",
+            url: "{% url 'game:get_data' %}" , 
+            data:{
+              "name": window.localStorage.getItem('name'),
+            }
+            })
+            .done(function (response) {
+                $('#append_').html(response);
+              });
+          }
+          last_inter = obj.inter_turn
+          })
+        })
+
+
+
+
+        
+  }, 1000);
+
+</script>
+
+
 {% endblock %}

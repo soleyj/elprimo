@@ -1,0 +1,23 @@
+{% load static%}
+
+<div class="jumbotron text-center">
+  <h1>Turno 3</h1>
+  <h2>Jugadores</h2>
+  {%for play in player_names%}
+  <h3>{{play}}</h3>
+  {%endfor%}
+  <h3>pasta : {{gold}}</h3>
+  <span id="animationSandbox" style="display: block;"><p class="recomd animated fadeInDown">¿Por quien votas neng?</p>
+    <div class="form-group">
+      <label for="exampleSelect1">Matar(votar) x:</label>
+      <select class="form-control" id="data">
+        {%for play in player_names%}
+        <option>{{play}}</option>
+        {%endfor%}
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary input_data_3">Submit</button>
+
+  </span>
+
+</div>

@@ -1,0 +1,21 @@
+{% load static%}
+
+<div class="jumbotron text-center">
+  <h1>Turno 5</h1>
+  <h2>Jugadores</h2>
+  {%for play in player_names%}
+  <h3>{{play}}</h3>
+  {%endfor%}
+  <h3>pasta : {{gold}}</h3>
+  <span id="animationSandbox" style="display: block;"><p class="recomd animated fadeInDown">QUANTA PASTA KIERES</p>
+    <div class="form-group">
+      <input type="number" class="form-control" id="data" aria-describedby="emailHelp" placeholder="Numero de Monedas">
+    </div>
+    <button type="submit" class="btn btn-primary input_data_5">Submit</button>
+  
+    
+  </span>
+
+</div>
+
+

@@ -1,0 +1,16 @@
+{% load static%}
+
+<div class="jumbotron text-center">
+  <h1>Turno 4</h1>
+  <h2>Jugadores</h2>
+  {%for play in player_names%}
+  <h3>{{play}}</h3>
+  {%endfor%}
+  <h3>pasta : {{gold}}</h3>
+  <span id="animationSandbox" style="display: block;"><p class="recomd animated fadeInDown">A muerto {{dead_player}} </p>
+    
+  </span>
+
+</div>
+
+

@@ -17,6 +17,7 @@ class Players():
         self.answ = 0
 
 
+
 class GamePrimo():
     def __init__(self):
         self.players =[]
@@ -25,10 +26,12 @@ class GamePrimo():
         self.inter_turn = 5
         self.time = 0
         self.total_gold = 0
-
+        self.dead_player = ""
+        
 
     def add_player(self,name):
         self.players.append(Players(name))
+
     
     def remove_player(self,name):
         for index,player in enumerate(self.players):
@@ -36,8 +39,34 @@ class GamePrimo():
                 del self.players[index]
                 break
 
+    def return_data(self,name):
+        temp_array = []
+        for player in self.players:
+            temp_array.append(player.name)
+        
+        for index,player in enumerate(self.players):
+            if(player.name == name):
+                data = {"time": self.time,
+                        "inter_turn": self.inter_turn,
+                        "total_gold": self.total_gold,
+                        "gold": player.gold,
+                        "answ": player.answ,
+                        "dead_player": self.dead_player,
+                        "player_names": temp_array,
+                        "start":self.start
+                        }
+                return data
+        
+        data = {"time": self.time,
+                        "inter_turn": self.inter_turn,
+                        "total_gold": self.total_gold,
+                        "player_names": temp_array,
+                        "start":self.start
+                        }
+        return data 
+        
     
-    def start(self):
+    def Start(self):
         self.start = 1
         self.turn = 0
         self.inter_turn = 5
@@ -55,33 +84,34 @@ class GamePrimo():
         if(self.start == 1):
             if(self.time == 0):
                 if(self.inter_turn == 1):
-                    self.inter_turn += 1
-                    self.time = 20
+                    # self.ask_player()
+                   
+                    self.time = 10
                 
                 elif(self.inter_turn == 2):
-                    self.dead_player()
-                    self.inter_turn += 1
+                   
                     self.time = 5
 
                 elif(self.inter_turn == 3):
-                    self.inter_turn += 1
-                    self.time = 20
+                   
+                    self.time = 10
 
                 elif(self.inter_turn == 4):
-                    self.ask_player()
-                    self.inter_turn += 1
+                    
+                   
                     self.time = 5
 
                 elif(self.inter_turn == 5):
-                    self.inter_turn += 1
-                    self.time = 20
+                   
+                    self.time = 10
 
                 elif(self.inter_turn == 6):
-                    self.gold_player()
-                    self.inter_turn += 1
+                    
+                   
                     self.time = 4
 
                 elif(self.inter_turn == 7):
+                        self.augmentar_boti
                         self.inter_turn = 1
                         self.time = 0
                         self.turn += 1
@@ -91,25 +121,49 @@ class GamePrimo():
 
             else:
                 self.time -= 1
+                if(self.time == 0):
+                    self.inter_turn += 1
+                    if(self.inter_turn == 4):
+                        self.Dead_player()
+                    if(self.inter_turn == 6):
+                        self.gold_player()
         
 
-
-    def ask_player(self):
+    def ask_player(self,name_,ask_): #Torn 1: Generar la llista de quí te més pata que qui
         for index,player in enumerate(self.players):
-            for player2 in enumerate(self.players):
-                if(player.ask == player2.name):
-                    if(player.gold > player2.gold):
-                        player.answ = 1
-                    
-                    else:
-                        player.answ = -1
+            if player.name == name_:
+                for player2 in self.players:
+                    if(ask_ == player2.name):
+                        if(player.gold > player2.gold):
+                            player.answ = 1
+                        
+                        else:
+                            player.answ = -1
+                        return(player.answ)
 
 
-    def gold_player(self):
-        temp_array=[]
+
+# #FALTA FER QUE DIGUI SI L'ALTRA PERSONA TÉ MÉS PASTA QUE TU O NO
+#     def Ask_player(self,name,ask): #Torn 2, preguntar si X persona té més pasta que tu
+#         for index,player in enumerate(self.players):
+#             if(player.name == name):
+#                 player.ask = ask
+#                 break
+            
+            
 
 
-    def dead_player(self):
+
+
+
+    def kill_player(self,name,kill): #Torn 3, dir a qui vol matar cadascú
+        for index,player in enumerate(self.players):
+            if(player.name == name):
+                player.kill = kill
+                break
+
+
+    def Dead_player(self): #Torn 4, matar-lo
         temp_array=[]
         for index,player in enumerate(self.players):
             temp_array.append(player.kill)
@@ -117,74 +171,44 @@ class GamePrimo():
         killed = max(set(temp_array), key = temp_array.count) 
         self.dead_player = killed
         for index,player in enumerate(self.players):
-            if(player.name == name):
+            if(player.name == killed):
                 self.total_gold += int(player.gold/2)
                 player.gold = int(player.gold/2)
         
 
 
-
-    def kill_player(self,name,kill):
-        for index,player in enumerate(self.players):
-            if(player.name == name):
-                player.kill = kill
-                break
     
-    def ask_player(self,name,ask):
-        for index,player in enumerate(self.players):
-            if(player.name == name):
-                player.ask = ask
-                break
-    
-    def get_player(self,name,wanted_gold):
+    def get_player(self,name,wanted_gold): #Torn 5, quant del botí vol cadascú
         for index,player in enumerate(self.players):
             if(player.name == name):
                 player.wanted_gold = wanted_gold
                 break
-        
 
-                ame == item[0]):
-                        self.gold = self.gold - item[1]
-                        player.gold = item[1]
-            else:
-                break
-
-
-
-    def dead_player(self):
+    def gold_player(self): #Torn 6, repartir botí
         temp_array=[]
-        for index,player in enumerate(self.players):
-            temp_array.append(player.kill)
-        
-        killed = max(set(temp_array), key = temp_array.count) 
-        self.dead_player = killed
-        for index,player in enumerate(self.players):
-            if(player.name == name):
-                self.total_gold += player.gold/2
-                player.gold = player.gold/2
-        
+        #Ordena de petit a gran
+        for i in self.players:
+            temp_array.append(i.wanted_gold)
+        temp_array.sort
+           # while np.any(x[:-1] > x[1:]):
+           #    np.random.shuffle(x)
+           #    return x
+        #Busca quin jugador ha apostat pel petit amb un doble for
+        for j in temp_array:  
+          for i in self.players:
+            if (j == i.wanted_gold):
+                if(self.total_gold-j>=0):
+                    self.total_gold-=j
+                    i.gold+=j
+                    i.wanted_gold=0
+                else:
+                    break
+
+    def augmentar_boti(self): #Torn 7, augmentar el botí
+        self.total_gold +=30
 
 
-
-    def kill_player(self,name,kill):
-        for index,player in enumerate(self.players):
-            if(player.name == name):
-                player.kill = kill
-                break
-    
-    def ask_player(self,name,ask):
-        for index,player in enumerate(self.players):
-            if(player.name == name):
-                player.ask = ask
-                break
-    
-    def get_player(self,name,wanted_gold):
-        for index,player in enumerate(self.players):
-            if(player.name == name):
-                player.wanted_gold = wanted_gold
-                break
-        
-
-                
-    
+    def show_players(self):
+       for i in self.players:
+         print (i.name)
 
