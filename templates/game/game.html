@@ -12,6 +12,7 @@
   <div id = "">
     <p >TIME<p id ="time"></p></p>
     <p >TURN<p id ="torn"></p></p>
+    <p >Eres<p id ="eres"></p></p>
   </div>
 </div>
 
@@ -34,6 +35,7 @@ var last_inter = 0
           console.log(obj.torn)
           $('#time').html(obj.time);
           $('#torn').html(obj.torn);
+          $('#eres').html((window.localStorage.getItem('name')));
           if(obj.inter_turn != last_inter)
           {
             $.ajax({

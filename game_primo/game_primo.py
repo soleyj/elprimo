@@ -192,6 +192,7 @@ class GamePrimo():
         for i in self.players:
             temp_array.append(i.wanted_gold)
         temp_array.sort()
+        print(temp_array)
            # while np.any(x[:-1] > x[1:]):
            #    np.random.shuffle(x)
            #    return x
