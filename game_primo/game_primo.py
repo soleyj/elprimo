@@ -117,7 +117,7 @@ class GamePrimo():
                         self.inter_turn = 1
                         self.time = 0
                         self.turn += 1
-                        if(self.turn == 1):
+                        if(self.turn == 6):
                             self.start = 2
 
 
